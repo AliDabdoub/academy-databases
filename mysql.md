@@ -57,7 +57,8 @@ In the pptx for the Database intro there are slides that explain how to install 
    ```
 10. List country code, name and independence year, sorted by year and thereafter name, for all the countries that have a independence year. (Hint: something with NULL).
 
-    ```sql SELECT code, name, indepyear from country
+    ```sql
+    SELECT code, name, indepyear from country
     WHERE indepYear IS NOT NULL
     ORDER BY indepYear ASC, name ASC;
     ```
@@ -106,7 +107,8 @@ In the pptx for the Database intro there are slides that explain how to install 
    ORDER BY numOfCountries DESC;
    ```
 1. Summarizes what the total population per continent (ie for all continents) is, sorted by population (descending order).
-   ```sql Select continent, SUM(population) as totalPopulation  from country
+   ```sql
+   Select continent, SUM(population) as totalPopulation  from country
    GROUP BY continent
    ORDER BY totalPopulation DESC;
    ```
