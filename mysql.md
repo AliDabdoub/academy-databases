@@ -9,67 +9,113 @@ In the pptx for the Database intro there are slides that explain how to install 
 ## 2. Run some SQL-Queries
 
 1. Fetch all data from the city table.
-<!-- SELECT * FROM City; -->
+   ```sql
+   SELECT * FROM City;
+   ```
 2. Fetch all data from Sweden (CountryCode="SWE") in the city table.
+
+   ```sql
+   SELECT * FROM City WHERE CountryCode = "SWE";
+   ```
+
 3. Fetch the CityName and Population for Sweden in the city table.
-<!-- SELECT name, population FROM city WHERE countrycode ='SWE'; -->
+
+   ```sql
+   SELECT name, population FROM city WHERE countrycode ='SWE';
+   ```
+
 4. Get the number of countries there is in the database (schema), have a look at the closing slides from the lecture.
-<!-- SELECT COUNT(*) FROM country; -->
+   ```sql
+   SELECT COUNT(*) FROM country;
+   ```
 5. Sum the total of people registered in the world database (schema) and call the column for WorldPopulation.
-<!-- SELECT SUM(population) as Worldpopulation FROM country -->
+   ```sql
+   SELECT SUM(population) as Worldpopulation FROM country
+   ```
 6. Sum how many people there is in Asia.
-<!-- SELECT SUM(population) as Worldpopulation FROM country
-WHERE continent = 'Asia'; -->
+   ```sql
+   SELECT SUM(population) as Worldpopulation FROM country
+   WHERE continent = 'Asia';
+   ```
 7. Make a rising ranked list of all countries and their area size, sorted by area. (Try to figure out which columns and tables that are needed)
-<!-- SELECT name, surfaceArea  FROM country
-ORDER BY SurfaceArea DESC; -->
+
+   ```sql
+   SELECT name, surfaceArea  FROM country
+   ORDER BY SurfaceArea DESC;
+   ```
+
 8. Make a ranked list of countries by declining life expectancy and rising population
-<!-- SELECT name, LifeExpectancy, population FROM country
-ORDER BY LifeExpectancy DESC, population ASC; -->
+   ```sql
+   SELECT name, LifeExpectancy, population FROM country
+   ORDER BY LifeExpectancy DESC, population ASC;
+   ```
 9. Make a list of countries by number of people per square kilometer. (Hint: Look for a table containing population and km2 to get started. Use mathematical operators in the query.)
-<!-- SELECT name, population/SurfaceArea as pplPerKm2
-FROM country
-Order by pplPerKm2 DESC; -->
+   ```sql
+   SELECT name, population/SurfaceArea as pplPerKm2
+   FROM country
+   Order by pplPerKm2 DESC;
+   ```
 10. List country code, name and independence year, sorted by year and thereafter name, for all the countries that have a independence year. (Hint: something with NULL).
-<!--
-SELECT code, name, indepyear from country
-WHERE indepYear IS NOT NULL
-ORDER BY indepYear ASC, name ASC; -->
+
+    ```sql
+    SELECT code, name, indepyear from country
+    WHERE indepYear IS NOT NULL
+    ORDER BY indepYear ASC, name ASC;
+    ```
 
 ---
 
 ## 3. Run some more SQL-Queries
 
 1. Fetch all countries that have 'W' in their country code.
-<!-- Select name, code FROM country
-WHERE code  like '%w%' -->
+
+   ```sql
+   Select name, code FROM country
+   WHERE code  like '%w%'
+   ```
+
 1. Fetch all countries that the name starts with 'N', 'O' or 'P'. Sort them by name.
-<!-- Select name FROM country
-WHERE name like 'n%' or name like 'o%' or name like 'p%'
-ORDER BY name ASC; -->
+   ```sql
+   Select name FROM country
+   WHERE name like 'n%' or name like 'o%' or name like 'p%'
+   ORDER BY name ASC;
+   ```
 1. Retrieve all language data for countries that have an official language spoken by 99% or more of the country's population. Sort by descending percentage, then alphabetically by language.
-<!-- Select percentage, language, IsOfficial from countrylanguage
-where percentage >= 99 and IsOfficial = 'T'
-ORDER BY percentage DESC, language asc -->
+   ```sql
+   Select percentage, language, IsOfficial from countrylanguage
+   where percentage >= 99 and IsOfficial = 'T'
+   ORDER BY percentage DESC, language asc
+   ```
 1. Retrieve country code, name and continent for all countries in America (both North America and South America). Sort alphabetically by country code.
-<!-- Select code, name, continent from country
-where continent like '%America'
-ORDER BY Code asc -->
+
+   ```sql
+   Select code, name, continent from country
+   where continent like '%America'
+   ORDER BY Code asc;
+   ```
 
 1. Retrieve the number of countries per continent for all continents.
-<!-- Select COUNT(*) as numOfCountries, continent from country
-GROUP BY continent -->
+   ```sql
+   Select COUNT(*) as numOfCountries, continent from country
+   GROUP BY continent;
+   ```
 1. Get the continent and the number of countries in this continent, for those continents that have 30 or more countries. Sort by number of countries in descending order.
-<!-- Select  continent, COUNT(*) as numOfCountries from country
-GROUP BY continent
-HAVING numOfCountries > 30
-ORDER BY numOfCountries DESC; -->
+   ```sql
+   Select  continent, COUNT(*) as numOfCountries from country
+   GROUP BY continent
+   HAVING numOfCountries > 30
+   ORDER BY numOfCountries DESC;
+   ```
 1. Summarizes what the total population per continent (ie for all continents) is, sorted by population (descending order).
-<!-- Select continent, SUM(population) as totalPopulation  from country
-GROUP BY continent
-ORDER BY totalPopulation DESC; -->
+   ```sql
+   Select continent, SUM(population) as totalPopulation  from country
+   GROUP BY continent
+   ORDER BY totalPopulation DESC;
+   ```
 1. Double check the answer from the problem above by summing the numbers per continent by hand (for example with Windows calculator), and then compare them with a new query that retrieves the sum of the world's population.
-<!-- SELECT SUM(population) from country -->
+   ```sql
+   SELECT SUM(population) from country
+   ```
 
 ---
 
