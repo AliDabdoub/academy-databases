@@ -85,6 +85,12 @@ For the first eight exercises, create a new database/schema named test and set i
 - Epost varchar(255), should be unique
 
 Create the table and make sure it exists by refreshing the view and the type in the editor: `DESC person`
+<!-- CREATE TABLE person (
+	  Personnummer CHAR(12) NOT NULL UNIQUE,
+    FirstName varchar(100) DEFAULT 'okänt',
+    LastName varchar(100) DEFAULT 'Okäntsson',
+    Epost varchar(255) UNIQUE
+); -->
 
 ### 2. Add a person to the table person with the following data:
 
